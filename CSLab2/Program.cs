@@ -1,16 +1,17 @@
 ﻿using System.Runtime.CompilerServices;
 
-
-class Program
+namespace CSLab2
 {
-    public static void Main()
+    class Program
     {
-        Tests tests = new Tests();
-        tests.Test_1_1();
-        tests.Test_1_2();
-        tests.Test_2();
-        tests.Test_3();
+        public static void Main()
+        {
+            Tests.Test_1_1();
+            Tests.Test_1_2();
+            Tests.Test_2();
+            Tests.Test_3();
 
-        Console.ReadLine();
+            Console.ReadLine();
+        }
     }
 }

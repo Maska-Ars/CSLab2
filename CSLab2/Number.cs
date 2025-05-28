@@ -4,62 +4,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-class Number
+namespace CSLab2
 {
-    private protected int x;
-    private protected int y;
-    private protected int z;
-
-    public Number(int x, int y, int z)
+    public class Number
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
-    public Number(Number n)
-    {
-        this.x = n.x;
-        this.y = n.y;
-        this.z = n.z;
-    }
-
-    public int Max()
-    {
-        if (x > y && x > z)
+        private protected int _x;
+        public int X
         {
-            return x;
+            get => _x;
+            set => _x = value;
         }
-        else if (y > z)
+
+        private protected int _y;
+        public int Y
         {
-            return y;
+            get => _y;
+            set => _y = value;
         }
-        else
+
+        private protected int _z;
+        public int Z
         {
-            return z;
+            get => _z;
+            set => _z = value;
         }
-    }
 
-    public override string ToString()
-    {
-        return $"x: {x}, y: {y}, z: {z}";
-    }
-}
+        public Number(int x, int y, int z)
+        {
+            _x = x;
+            _y = y;
+            _z = z;
+        }
 
-class Triangle : Number
-{
+        public Number(Number otherNumber)
+        {
+            _x = otherNumber.X;
+            _y = otherNumber.Y;
+            _z = otherNumber.Z;
+        }
 
-    public Triangle(int x, int y, int z) : base(x, y, z) { }
+        public int Max()
+        {
+            if (_x > _y && _x > _z)
+            {
+                return _x;
+            }
+            else if (_y > _z)
+            {
+                return _y;
+            }
+            else
+            {
+                return _z;
+            }
+        }
 
-    public int Perimeter()
-    {
-        return x + y + z;
-    }
-
-    public double Square()
-    {
-        double p = this.Perimeter() / 2;
-        return Math.Sqrt(p * (p - this.x) * (p - this.y) * (p - this.z));
+        public override string ToString()
+        {
+            return $"x: {_x}, y: {_y}, z: {_z}";
+        }
     }
 }

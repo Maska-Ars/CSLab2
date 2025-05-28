@@ -7,77 +7,84 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
-class Point
+namespace CSLab2
 {
-    private double x { get; set; }
-
-    private double y { get; set; }
-
-    public Point(double x, double y)
+    public class Point(double x, double y)
     {
-        this.x = x;
-        this.y = y;
-    }
+        private double _x = x;
 
-    // 2
-    public double Distance(double x, double y)
-    {
-        return Math.Sqrt(Math.Pow(this.x-x, 2)+ Math.Pow(this.y - y, 2));
-    }
+        public double X
+        {
+            get => _x;
+            set => _x = value;
+        }
 
-    // 2
-    public double Distance(Point p)
-    {
-        return Math.Sqrt(Math.Pow(this.x - p.x, 2) + Math.Pow(this.y - p.y, 2));
-    }
+        private double _y = y;
 
-    // 2
-    public override string ToString()
-    {
-        return $"x: {x}, y: {y}";
-    }
+        public double Y
+        {
+            get => _y;
+            set => _y = value;
+        }
 
-    // 3
-    public static Point operator ++(Point p)
-    {
-        return new Point(p.x + 1, p.y);
-    }
+        // 2
+        public double Distance(double x, double y)
+        {
+            return Math.Sqrt(Math.Pow(_x - x, 2) + Math.Pow(_y - y, 2));
+        }
 
-    // 3
-    public static Point operator --(Point p)
-    {
-        return new Point(p.x - 1, p.y);
-    }
+        // 2
+        public double Distance(Point otherPoint)
+        {
+            return Math.Sqrt(Math.Pow(_x - otherPoint.X, 2) + Math.Pow(_y - otherPoint.Y, 2));
+        }
 
-    // 3 явная
-    public static implicit operator int(Point p)
-    {
-        return (int)p.y;
-    }
+        // 2
+        public override string ToString()
+        {
+            return $"x: {_x}, y: {_y}";
+        }
 
-    // 3 неявная
-    public static explicit operator double(Point p)
-    {
-        return p.y;
-    }
+        // 3
+        public static Point operator ++(Point point)
+        {
+            return new Point(point.X + 1, point.Y);
+        }
 
-    // 3
-    public static double operator +(Point p1, Point p2)
-    {
-        return p1.Distance(p2);
-    }
+        // 3
+        public static Point operator --(Point point)
+        {
+            return new Point(point.X - 1, point.Y);
+        }
 
-    // 3
-    public static Point operator +(Point p, int x)
-    {
-        return new Point(p.x + x, p.y);
-    }
+        // 3 явная
+        public static explicit operator int(Point point)
+        {
+            return (int)point.Y;
+        }
 
-    // 3
-    public static Point operator +(int x, Point p)
-    {
-        return new Point(p.x + x, p.y);
+        // 3 неявная
+        public static implicit operator double(Point point)
+        {
+            return point.Y;
+        }
+
+        // 3
+        public static double operator +(Point point1, Point point2)
+        {
+            return point1.Distance(point2);
+        }
+
+        // 3
+        public static Point operator +(Point point, int x)
+        {
+            return new Point(point.X + x, point.Y);
+        }
+
+        // 3
+        public static Point operator +(int x, Point point)
+        {
+            return new Point(point.X + x, point.Y);
+        }
     }
 }
-

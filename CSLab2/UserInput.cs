@@ -2,62 +2,71 @@
 
 class UserInput
 {
-    // Для ввода целых чисел
-    public int intInput(bool isPositive = false, string text = "Введите целое число: ")
+    public static int IntInput(bool isPositive = false, string prompt = "Введите целое число: ")
     {
-        string user_input = "";
-        bool b = false;
+        string? userInput;
+        bool isValidInput = false;
+        int result = 0;
 
-        while (b != true)
+        while (!isValidInput)
         {
-            Console.Write(text);
-            user_input = Console.ReadLine();
-            b = int.TryParse(user_input, out int result2);
-            if (b && isPositive)
+            Console.Write(prompt);
+            userInput = Console.ReadLine();
+
+            if (int.TryParse(userInput, out result))
             {
-                int i = int.Parse(user_input);
-                if (i < 0)
+                if (isPositive && result < 0)
                 {
-                    b = false;
                     Console.WriteLine("Число должно быть положительным!");
                 }
-            }
-            else if (!b) { Console.WriteLine("Введенное значение не является целым числом!"); }
-        }
-        return int.Parse(user_input);
-    }
-
-    // Для ввода дробных чисел
-    public double doubleInput(bool isPositive = false, string text = "Введите целое число: ")
-    {
-        string user_input = "";
-        bool b = false;
-
-        while (b != true)
-        {
-            Console.Write(text);
-            user_input = Console.ReadLine();
-            b = double.TryParse(user_input, out double result2);
-            if (b && isPositive)
-            {
-                double i = double.Parse(user_input);
-                if (i < 0)
+                else
                 {
-                    b = false;
-                    Console.WriteLine("Число должно быть положительным!");
+                    isValidInput = true;
                 }
             }
-            else if (!b) { Console.WriteLine("Введенное значение не является целым числом!"); }
+            else
+            {
+                Console.WriteLine("Введенное значение не является целым числом!");
+            }
         }
-        return double.Parse(user_input);
+        return result;
     }
 
-    // Для ввода 1 символа
-    public char charInput()
+    public static double DoubleInput(bool isPositive = false, string prompt = "Введите число: ")
+    {
+        string? userInput;
+        bool isValidInput = false;
+        double result = 0;
+
+        while (!isValidInput)
+        {
+            Console.Write(prompt);
+            userInput = Console.ReadLine();
+
+            if (double.TryParse(userInput, out result))
+            {
+                if (isPositive && result < 0)
+                {
+                    Console.WriteLine("Число должно быть положительным!");
+                }
+                else
+                {
+                    isValidInput = true;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Введенное значение не является числом!");
+            }
+        }
+        return result;
+    }
+
+    public static char CharInput()
     {
         Console.Write("Введите символ: ");
-        string user_input = Console.ReadLine();
-        while (user_input.Length > 1 || user_input.Length == 0)
+        string? user_input = Console.ReadLine();
+        while (user_input == null || user_input.Length > 1 || user_input.Length == 0)
         {
             Console.Write("Введите 1 символ!: ");
             user_input = Console.ReadLine();
@@ -66,12 +75,11 @@ class UserInput
 
     }
 
-    // Для ввода массива заданной длинны и случайными числами
-    public int[] randomArrInput()
+    public static int[] RandomArrInput()
     {
-        int arr_size = intInput(true, "Введите размер массива: ");
+        int arr_size = IntInput(true, "Введите размер массива: ");
         int[] arr = new int[arr_size];
-        Random rand = new Random();
+        Random rand = new();
         for (int i = 0; i < arr_size; i++)
         {
             arr[i] = rand.Next(-arr_size, arr_size);
