@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSLab2
+﻿namespace CSLab2
 {
     public class Number
     {
-        private protected int _x;
+        protected int _x;
+
         public int X
         {
             get => _x;
             set => _x = value;
         }
 
-        private protected int _y;
+        protected int _y;
+
         public int Y
         {
             get => _y;
             set => _y = value;
         }
 
-        private protected int _z;
+        protected int _z;
+
         public int Z
         {
             get => _z;

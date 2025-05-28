@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace CSLab2
+﻿namespace CSLab2
 {
     class Program
     {
