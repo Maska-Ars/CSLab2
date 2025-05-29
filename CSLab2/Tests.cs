@@ -33,8 +33,7 @@ class Tests
 
     public static void Test_1_2()
     {
-        Console.WriteLine("Тест задания 1.2(дочерний класс)");
-        
+        Console.WriteLine("Тест задания 1.2(дочерний класс)"); 
 
         Console.WriteLine("  Тест конструктора и метода ToString:");
         for (int i = 0; i < 3; i++)
@@ -47,7 +46,6 @@ class Tests
         }
         Console.WriteLine("  Тест метода конструктора и метода ToString завершен");
 
-
         Console.WriteLine("  Тест метода Perimeter:");
         for (int i = 0; i < 3; i++)
         {
@@ -58,7 +56,6 @@ class Tests
             Console.WriteLine($"    p = {triangle.Perimeter()}");
         }
         Console.WriteLine("  Тест метода Perimeter завершен");
-
 
         Console.WriteLine("  Тест метода Square:");
         for (int i = 0; i < 3; i++)
@@ -103,7 +100,6 @@ class Tests
         }
         Console.WriteLine("  Тест метода Distance завершен");
 
-
         Console.WriteLine("Тест задания 2 завершен");
     }
 
@@ -122,7 +118,6 @@ class Tests
         }
         Console.WriteLine("  Тест ++ завершен");
 
-
         Console.WriteLine("  Тест --:");
         for (int i = 0; i < 3; i++)
         {
@@ -133,7 +128,6 @@ class Tests
             Console.WriteLine($"    {point}");
         }
         Console.WriteLine("  Тест -- завершен");
-
 
         Console.WriteLine("  Тест сложения point и point:");
         for (int i = 0; i < 3; i++)
@@ -150,7 +144,6 @@ class Tests
         }
         Console.WriteLine("  Тест сложения point и point завершен");
 
-
         Console.WriteLine("  Тест сложения point и int:");
         for (int i = 0; i < 3; i++)
         {
@@ -163,7 +156,6 @@ class Tests
             Console.WriteLine($"    point + n = {point + n}");
         }
         Console.WriteLine("  Тест сложения point и int завершен");
-
 
         Console.WriteLine("  Тест сложения int и point:");
         for (int i = 0; i < 3; i++)
@@ -178,7 +170,6 @@ class Tests
         }
         Console.WriteLine("  Тест сложения int и point завершен");
 
-
         Console.WriteLine("  Тест явного приведения к int:");
         for (int i = 0; i < 3; i++)
         {
@@ -192,7 +183,6 @@ class Tests
         }
         Console.WriteLine("  Тест явного приведения к int завершен");
 
-
         Console.WriteLine("  Тест неявного приведения к double:");
         for (int i = 0; i < 3; i++)
         {
@@ -205,7 +195,6 @@ class Tests
             Console.WriteLine($"    n = {n}");
         }
         Console.WriteLine("  Тест неявного приведения к double завершен");
-
 
         Console.WriteLine("Тест задания 3 завершен");
     }
